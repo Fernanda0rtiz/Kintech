@@ -5,6 +5,13 @@
     
 }
 
+@font-face {
+
+    font-family: clasica;
+    src: url("fonts/Quicksand-VariableFont_wght.ttf")
+    
+}
+
 *
 {
     margin:0;
@@ -70,7 +77,6 @@ header ul li a:hover
 }
 
 
-
 h1 
 {
     font-family: Pixels;
@@ -78,3 +84,61 @@ h1
     margin-right: 500px;
 }
 
+.introduccion{
+    text-align: justify;
+    font-size: 20px;
+   
+}
+
+.margen {
+    margin-top: 130px;
+}
+
+h2 {
+ font-family: Pixels;
+ text-align: center;
+ font-size: 3rem;
+ color: rgb(255, 225, 0);
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 180px;
+    margin-right: 180px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: justify;
+}
+
+.box{
+    text-align: justify;
+}
+
+.persona {
+    text-align: justify;
+    margin-left: 450px;
+
+}
+
+.imgnosotros{
+    border-radius: 50%;
+    max-width: 250px;
+    width: 100%;
+    vertical-align: top;
+    height: 250px;
+    object-fit: cover;
+    margin-left: 200px;
+    margin-top: 80px;
+   
+}
+
+.descripcion{
+    text-align: justify;
+    font-size: 20px;
+    padding-left: 300px;
+   
+}
+
+.texto{
+    margin-left: 100px;
+}
