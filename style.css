@@ -78,3 +78,75 @@ h1
     margin-right: 500px;
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+@media (max-height:  800px)
+{
+    footer{
+        position: static;
+    }
+    header {
+        padding-top: 40px;
+    }
+}
+
+.distribucion {
+    background-color: rgb(49, 98, 140);
+    box-sizing: border-box;
+    widows: 100%;
+    text-align: left;
+    font: bold 16px Arial;
+    padding: 50px 50px 60px 60px;
+    margin-top: 80px;
+}
+
+.distribucion .izquierda .distribucion .centro .distribucion .derecha  {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.distribucion .izquierda {
+    width: 30%;
+}
+
+.distribucion h3 {
+    color: aliceblue;
+    font: normal 36px, Pixels;
+    margin: 0;
+}
+
+.distribucion h3 span {
+    color: yellow;
+}
+
+.distribucion .links {
+    color: white;
+    margin: 20px 0 12px;
+}
+
+.distribucion .nombrefooter {
+    color: yellow;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+.distribucion .centro {
+    width: 35%;
+}
+
+.distribucion .centro i {
+    background-color: rgb(29, 29, 55);
+    color: white;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
