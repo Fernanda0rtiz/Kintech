@@ -5,19 +5,33 @@
     
 }
 
+@font-face {
+
+    font-family: clasica;
+    src: url("fonts/Quicksand-VariableFont_wght.ttf")
+    
+}
+
+@font-face {
+
+    font-family: Pacman;
+    src: url("fonts/Pac\ man.otf")
+    
+}
+
 *
 {
     margin:0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: clasica;
 }
 
 
 body
 {
     color: rgb(250, 245, 245);
-    font-family: sans-serif;
+    font-family: clasica
     font-size: 1rem;
     line-height: 1.5em;
     margin: 0;
@@ -81,6 +95,9 @@ h1
     margin-top: 200px;
     margin-left: 500px;
     text-align: center;
+    font-family: Pacman;
+    font-size: 4rem;
+    color: rgb(248, 223, 29);
 }
 
 .producto {
@@ -101,11 +118,13 @@ h1
 .info {
     float: right;
     padding: 15px;
-    margin-left: 50px;
+    margin-left: 100px;
 }
 
 .boton {
-    float: right;
+    float: left;
+    margin-left: 110px;
+    margin-top: 50px;
 }
 
 button {
@@ -116,5 +135,13 @@ button {
 
 .venta {
     font-size: 3rem;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    margin-top: 150px;
+    font-family: Pacman;
+}
+
+.precio {
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
