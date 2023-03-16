@@ -1,32 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Kintech</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="style.css" rel="stylesheet" >
-    </head>
+  <meta charset="UTF-8">
+  <title>Pac-Man KIN-TECH</title>
+  <style>
 
+    body {
+  background-color: rgb(14, 14, 179);
+}
 
+    #game-board {
+      width: 1300px;
+      height: 500px;
+      border: 1px solid rgb(251, 243, 243);
+      position: relative;
+    }
 
+    .pac-man {
+      width: 60px;
+      height: 60px;
+      background-color: yellow;
+      border-radius: 70%;
+      position: absolute;
+      top: 250px;
+      left: 650px;
+    }
+    .dot {
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+    }
+  </style>
+</head>
 <body>
-    <header>
-        <h1> KINTECH </h1>
-        <ul>
-            <li><a href="Index.html" class=" activar" >Inicio</a></li>
-             <li><a href="Propuesta.html">Propuesta</a></li>
-             <li><a href="Pac-Man.html">PacMan</a></li>
-            <li><a href="Compra.html">Compra</a></li>
-            <li><a href="Nosotros.html">Nosotros</a></li>
-        </ul>
-    </header>
+  <h1>Pac-Man KIN-TECH</h1>
+  <p>Simulación de movimiento alrededor del tablero.</p>
+  <div id="game-board">
+<!--posicion de pildoras-->
+    <div class="pac-man"></div>
+    <div class="dot" style="top: 50px; left: 100px;"></div>
+    <div class="dot" style="top: 50px; left: 1200px;"></div>
+    <div class="dot" style="top: 450px; left: 100px;"></div>
+    <div class="dot" style="top: 450px; left: 1200px;"></div>
+  </div>
+  <script>
+    // Get the Pac-Man element
+    const pacMan = document.querySelector('.pac-man');
 
-    <section>
+    // poscicion inicial de pacman
+    let pacManX = 135;
+    let pacManY = 135;
 
-    </section>
+    // movimiento
+    document.addEventListener('keydown', (event) => {
+      switch (event.key) {
+        case 'ArrowUp':
+          pacManY -= 10;
+          break;
+        case 'ArrowDown':
+          pacManY += 10;
+          break;
+        case 'ArrowLeft':
+          pacManX -= 10;
+          break;
+        case 'ArrowRight':
+          pacManX += 10;
+          break;
+      }
+      // actualizar poscicion de pacman
+      pacMan.style.top = pacManY + 'px';
+      pacMan.style.left = pacManX + 'px';
+    });
 
+    // remover pildoras
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot) => {
+      dot.addEventListener('touchstart', () => {
+        dot.remove();
+      });
+    });
+  </script>
 </body>
-</html>
 </html>
