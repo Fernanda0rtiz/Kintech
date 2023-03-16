@@ -1,0 +1,123 @@
+@font-face {
+
+    font-family: Pixels;
+    src: url("fonts/pixels.ttf")
+    
+}
+
+@font-face {
+
+    font-family: clasica;
+    src: url("fonts/Quicksand-VariableFont_wght.ttf")
+    
+}
+
+@font-face {
+
+    font-family: Pacman;
+    src: url("fonts/Pac\ man.otf")
+    
+}
+
+@keyframes rotar{
+    from{
+        transform: rotateY(0deg);
+    }to{
+        transform: rotateY(360deg);
+    }
+}
+
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body
+{
+    color: rgb(250, 245, 245);
+    font-family: sans-serif;
+    font-size: 1rem;
+    line-height: 1.5em;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(rgb(11, 0, 75), rgb(2, 2, 2))
+}
+
+
+
+header
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: spaace-between;
+    align-items: center;
+
+}
+
+header ul 
+{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+header ul li 
+{
+    list-style: none;
+    margin-left: 30px
+}
+
+header ul li a
+{
+    text-decoration: none;
+    padding: 6px 20px;
+    color: white;
+    border-radius: 20px;
+}
+
+header ul li a:hover
+{
+    background: white;
+    color: black;
+    font-family: Pixels;
+}
+
+
+
+h1 
+{
+    font-family: Pixels;
+    font-size: 2rem;
+    margin-right: 500px;
+}
+
+.contenido {
+    margin-left: 100px;
+    margin-bottom: 100px;
+}
+
+
+.juego {
+    margin-top: 200px;
+    font-family: Pacman;
+    font-size: 4rem;
+    color: rgb(235, 207, 48);
+    text-align: center;
+    margin-bottom: 100px;
+    margin-left: 450px;
+}
+
+p {
+    font-size: 20px;
+    font-family: clasica;
+    margin-bottom: 30px;
+}
