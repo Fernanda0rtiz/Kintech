@@ -5,6 +5,20 @@
     
 }
 
+@font-face {
+
+    font-family: clasica;
+    src: url("fonts/Quicksand-VariableFont_wght.ttf")
+    
+}
+
+@font-face {
+
+    font-family: Pacman;
+    src: url("fonts/Pac\ man.otf")
+    
+}
+
 *
 {
     margin:0;
@@ -78,3 +92,19 @@ h1
     margin-right: 500px;
 }
 
+.body {
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+img {
+    width: 1000px;
+    align-items: center;
+}
+
+.bienvenidos {
+    font-family: Pacman;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 400px;
+}

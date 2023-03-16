@@ -12,6 +12,13 @@
     
 }
 
+@font-face {
+
+    font-family: Pacman;
+    src: url("fonts/Pac\ man.otf")
+    
+}
+
 *
 {
     margin:0;
@@ -154,4 +161,9 @@ p {
     display: flex;
     flex-direction: column;
    
+}
+
+.nosotross {
+    font-family: Pacman;
+    font-size: 4rem;
 }
