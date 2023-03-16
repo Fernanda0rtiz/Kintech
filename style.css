@@ -252,6 +252,7 @@ img {
     margin-top: 100px;
     margin-left: 400px;
     margin-right: 200px;
+    margin-bottom: 100px;
 }
 
 .titulonosotros {
@@ -341,5 +342,94 @@ img {
 .tarjeta3{
 	background-image: url(imagenes/fer.JPG);
 	background-size: cover;
+
 }
 
+.button {
+    border: 1px solid rgb(214, 189, 63);
+    color: rgb(214, 189, 63);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 8px;
+    font-family: Pixels;
+    margin-left: 280px;
+
+}
+
+
+
+footer {
+    background-color: #fadf2a;
+}
+
+
+.footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: right;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-top: 20px;
+}
+
+
+.content.terms{
+    max-width: 350px;
+
+    color: #000000;
+    font-size: 10px;
+    text-align: left;
+}
+
+.footer h3{
+    color: #1329f0;
+    text-align: left;
+}
+
+.content .menu {
+    color:#1329f0;
+    text-align: left;
+}
+
+.content a{
+    margin-top: 10px;
+    color: #7a7a7a;
+    font-weight: 400;
+    text-align: left;
+}
+
+.content a:hover{
+    opacity: 0.6;
+    font-family: pixels;
+}
+
+.contenta .fab{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+
+}
+
+.content a .fas{
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+}
+
+
+.piedepagina {
+    color: rgb(0, 0, 0);
+    font-family: clasica;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 15px;
+}
