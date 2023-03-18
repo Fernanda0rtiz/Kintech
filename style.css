@@ -60,6 +60,7 @@ header
     display: flex;
     justify-content: spaace-between;
     align-items: center;
+    text-align: center;
 
 }
 
@@ -111,14 +112,22 @@ img {
     margin-top: 70px;
 }
 
-.bienvenidos {
+.hola {
+    text-align: center;
+
+}
+
+.hola .bienvenidos{
+    align-items: center;
     font-family: Pacman;
     margin-top: 100px;
     margin-bottom: 50px;
-    margin-left: 370px;
+    padding: 20px;
     font-size: 4rem;
     color: rgb(226, 207, 33);
 }
+
+
 
 .presentacion {
     margin-left: 70px;
@@ -187,21 +196,20 @@ img {
 }
 
 .propuesta {
+    display: flex;
     margin-top: 500px;
+    justify-content: center;
 }
 
 .boton {
+    display: flex;
     border: 1px solid rgb(214, 189, 63);
     color: rgb(214, 189, 63);
-    text-align: center;
     text-decoration: none;
     border-radius: 10px;
     font-size: 18px;
-    padding: 8px;
     font-family: Pixels;
-    margin-left: 500px;
-    
-
+    padding: 8px;
 }
 
 .explicacion {
