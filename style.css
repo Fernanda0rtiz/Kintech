@@ -107,24 +107,21 @@ h1
 }
 
 img {
-    width: 1470px;
+    width: 1800px;
     align-items: center;
     margin-top: 70px;
 }
 
-.hola {
-    text-align: center;
-
-}
-
 .hola .bienvenidos{
-    align-items: center;
+    display: flex;
+    justify-content: center;
     font-family: Pacman;
     margin-top: 100px;
     margin-bottom: 50px;
     padding: 20px;
     font-size: 4rem;
     color: rgb(226, 207, 33);
+    margin-left: 500px;
 }
 
 
@@ -254,14 +251,13 @@ img {
 
 .wrap {
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 
 .nosotros {
     margin-top: 100px;
-    margin-left: 400px;
-    margin-right: 200px;
+
     margin-bottom: 100px;
 }
 
@@ -271,7 +267,7 @@ img {
     font-size: 3rem;
     margin-bottom: 50px;
     text-align: center;
-    margin-left: -180px;
+    margin-left: -30px;
 
 }
 
@@ -364,7 +360,8 @@ img {
     font-size: 18px;
     padding: 8px;
     font-family: Pixels;
-    margin-left: 280px;
+    justify-content: center;
+    display: flex;
 
 }
 
