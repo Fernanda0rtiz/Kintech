@@ -190,7 +190,22 @@ h2 {
     margin-bottom: 100px;
 }
 
+.video {
+    margin-bottom: -200px;
+}
 
+.button {
+    border: 1px solid rgb(214, 189, 63);
+    color: rgb(214, 189, 63);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 18px;
+    padding: 8px;
+    font-family: Pixels;
+    margin-left: 700px;
+    margin-bottom: 50px;
+}
 
 .uno {
     margin-left: 500px;
@@ -224,4 +239,11 @@ p{
 
 .seis {
     margin-left: 500px;
+}
+
+video {
+    height: 1000px;
+    width: 800px;
+    align-items: center;
+    margin-left: 350px;
 }
