@@ -351,6 +351,13 @@ img {
 
 }
 
+.conocenos {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5vh;
+}
+
 .button {
     border: 1px solid rgb(214, 189, 63);
     color: rgb(214, 189, 63);
