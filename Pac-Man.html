@@ -5,12 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Kintech</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="pacman.css" rel="stylesheet" >
+        <style>
+          #game-board {
+            width: 80vw;
+            height: 45vw;
+          }
+        </style>
     </head>
 
-
-<section>
 <body>
     <header>
         <h1> KINTECH</h1>
@@ -22,9 +25,8 @@
             <li><a href="Nosotros.html">Nosotros</a></li>
         </ul>
     </header>
-  
-</head>
-<body>
+
+<section>
   <div class="interno">
   <h1 class="juego">Pac-Man</h1>
   <p>Simulación de movimiento alrededor del tablero.</p>
@@ -38,40 +40,54 @@
   </div>
   <script>
     // Get the Pac-Man element
-    const pacMan = document.querySelector('.pac-man');
+const pacMan = document.querySelector('.pac-man');
 
-    // poscicion inicial de pacman
-    let pacManX = 650;
-    let pacManY = 250;
+// Get the game board element
+const gameBoard = document.querySelector('#game-board');
 
-    // movimiento
-    document.addEventListener('keydown', (event) => {
-      switch (event.key) {
-        case 'w':
-          pacManY -= 10;
-          break;
-        case 's':
-          pacManY += 10;
-          break;
-        case 'a':
-          pacManX -= 10;
-          break;
-        case 'd':
-          pacManX += 10;
-          break;
-      }
-      // actualizar poscicion de pacman
-      pacMan.style.top = pacManY + 'px';
-      pacMan.style.left = pacManX + 'px';
-    });
+// poscicion inicial de pacman
+let pacManX = 650;
+let pacManY = 250;
 
-    // remover pildoras
-    const dots = document.querySelectorAll('.dot');
-    dots.forEach((dot) => {
-      dot.addEventListener('touchstart', () => {
-        dot.remove();
-      });
-    });
+// variable para almacenar la dirección del movimiento
+let direccion = '';
+// función para mover al Pac-Man en una dirección
+function mover() {
+  switch (direccion) {
+    case 'w':
+      pacManY = Math.max(pacManY - 10, 0);
+      break;
+    case 's':
+      pacManY = Math.min(pacManY + 10, gameBoard.offsetHeight - pacMan.offsetHeight);
+      break;
+    case 'a':
+      pacManX = Math.max(pacManX - 10, 0);
+      break;
+    case 'd':
+      pacManX = Math.min(pacManX + 10, gameBoard.offsetWidth - pacMan.offsetWidth);
+      break;
+  }
+  // actualizar poscicion de pacman
+  pacMan.style.top = pacManY + 'px';
+  pacMan.style.left = pacManX + 'px';
+}
+
+// mover al Pac-Man en una dirección continuamente
+setInterval(mover, 100);
+
+// capturar las teclas presionadas
+document.addEventListener('keydown', (event) => {
+  direccion = event.key;
+});
+
+// remover pildoras
+const dots = document.querySelectorAll('.dot');
+dots.forEach((dot) => {
+  dot.addEventListener('touchstart', () => {
+    dot.remove();
+  });
+});
+
   </script>
   </div>
 </body> </body>
