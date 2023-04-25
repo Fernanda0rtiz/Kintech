@@ -225,3 +225,13 @@ footer {
     text-align: center;
     font-size: 10px;
 }
+
+.wall {
+    border: 6px solid #000;
+  }
+  
+  .pac-man {
+    width: 25px;
+    height: 25px;
+  }
+  
