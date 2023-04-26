@@ -125,30 +125,51 @@ body {
     background-color: rgb(14, 14, 179);
   }
   
-      #game-board {
-        width: 1300px;
-        height: 500px;
-        border: 1px solid rgb(251, 243, 243);
-        position: relative;
-      }
+  #game-board {
+    position: relative;
+    width: 700px;
+    height: 500px;
+    border: 5px solid black;
+    margin: 0 auto;
+    background-color: black;
+  }
   
-      .pac-man {
-        width: 60px;
-        height: 60px;
-        background-color: yellow;
-        border-radius: 70%;
-        position: absolute;
-        top: 250px;
-        left: 650px;
-      }
-      .dot {
-        width: 30px;
-        height: 30px;
-        background-color: white;
-        border-radius: 50%;
-        position: absolute;
-      }
-
+  #game-board::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+  }
+  
+  .pac-man {
+    position: absolute;
+    top: 250px;
+    left: 350px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: yellow;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .pac-man.player2 {
+    background-color: rgb(255, 0, 0);
+  }
+  
+  
+  .dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+  }
+  
+  /* Estilos adicionales para las píldoras */
+    
 
 
 footer {
@@ -234,4 +255,5 @@ footer {
     width: 25px;
     height: 25px;
   }
+  
   

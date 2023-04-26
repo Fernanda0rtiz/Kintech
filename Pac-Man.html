@@ -13,119 +13,63 @@
           }
         </style>
     </head>
+    <body>
+        <header>
+            <h1> KINTECH</h1>
+            <ul>
+                <li><a href="Index.html" class="activar">Inicio</a></li>
+                <li><a href="Propuesta.html">Propuesta</a></li>
+                <li><a href="Pac-Man.html">PacMan</a></li>
+                <li><a href="Compra.html">Compra</a></li>
+                <li><a href="Nosotros.html">Nosotros</a></li>
+            </ul>
+        </header>
 
-<body>
-    <header>
-        <h1> KINTECH</h1>
-        <ul>
-            <li><a href="Index.html" class=" activar" >Inicio</a></li>
-             <li><a href="Propuesta.html">Propuesta</a></li>
-             <li><a href="Pac-Man.html">PacMan</a></li>
-            <li><a href="Compra.html">Compra</a></li>
-            <li><a href="Nosotros.html">Nosotros</a></li>
-        </ul>
-    </header>
+        <section>
+            <div class="interno">
+                <h1 class="juego">Pac-Man</h1>
+                <p>Videojuego de pacman.</p>
+                <div id="game-board">
+                    <!--posicion de pildoras-->
+                    <div class="pac-man"></div>
+                    <div class="pac-man player2"></div>
+                
+                </div>
+            </div>
+            
+        </section>
 
-<section>
-  <div class="interno">
-  <h1 class="juego">Pac-Man</h1>
-  <p>Simulación de movimiento alrededor del tablero.</p>
-  <div id="game-board">
-<!--posicion de pildoras-->
-    <div class="pac-man"></div>
-    <div class="dot" style="top: 50px; left: 100px;"></div>
-    <div class="dot" style="top: 50px; left: 1200px;"></div>
-    <div class="dot" style="top: 450px; left: 100px;"></div>
-    <div class="dot" style="top: 450px; left: 1200px;"></div>
-  </div>
-  <script>
-    // Get the Pac-Man element
-const pacMan = document.querySelector('.pac-man');
+        <footer class="pie">
+            <div class="footer">
+                <div class="content">
+                    <h3>Contacto</h3>
+                    <a href="#"> <i class="fab fa-instagram"></i> @Kintech</a>
+                    <a href="#"><i class="fas fa-envelope"></i> kintech@gmail.com</a>
+                    <a href="#"><i class="fab fa-whatsapp"></i> +981 143 19 19</a>
+                    <a href="#"><i class="fab fa-facebook"></i> Kintech.Pacman</a>
+                </div>
 
-// Get the game board element
-const gameBoard = document.querySelector('#game-board');
+                <div class="content">
+                    <h3>Menú</h3>
+                    <a href="Index.html">Inicio</a>
+                    <a href="Propuesta.html">Propuesta</a>
+                    <a href="Pac-Man.html">PacMan</a>             
+                </div>
 
-// poscicion inicial de pacman
-let pacManX = 650;
-let pacManY = 250;
+                <div class="content">
+                    <h3></h3>
+                    <a href="Compra.html">Compra</a>
+                    <a href="Nosotros.html">Nosotros</a> 
+                </div>
+            </div>
 
-// variable para almacenar la dirección del movimiento
-let direccion = '';
-// función para mover al Pac-Man en una dirección
-function mover() {
-  switch (direccion) {
-    case 'w':
-      pacManY = Math.max(pacManY - 10, 0);
-      break;
-    case 's':
-      pacManY = Math.min(pacManY + 10, gameBoard.offsetHeight - pacMan.offsetHeight);
-      break;
-    case 'a':
-      pacManX = Math.max(pacManX - 10, 0);
-      break;
-    case 'd':
-      pacManX = Math.min(pacManX + 10, gameBoard.offsetWidth - pacMan.offsetWidth);
-      break;
-  }
-  // actualizar poscicion de pacman
-  pacMan.style.top = pacManY + 'px';
-  pacMan.style.left = pacManX + 'px';
-}
-
-// mover al Pac-Man en una dirección continuamente
-setInterval(mover, 100);
-
-// capturar las teclas presionadas
-document.addEventListener('keydown', (event) => {
-  direccion = event.key;
-});
-
-// remover pildoras
-const dots = document.querySelectorAll('.dot');
-dots.forEach((dot) => {
-  dot.addEventListener('touchstart', () => {
-    dot.remove();
-  });
-});
-
-  </script>
-  </div>
-</body> </body>
-</section>
-
-<footer class="pie">
-
-  <div class="footer">
-
-      <div class="content">
-          <h3>Contacto</h3>
-          <a href="#"> <i class="fab fa-instagram"></i> @Kintech</a>
-          <a href="#"><i class="fas fa-envelope"></i> kintech@gmail.com</a>
-          <a href="#"><i class="fab fa-whatsapp"></i> +981 143 19 19</a>
-          <a href="#"><i class="fab fa-facebook"></i> Kintech.Pacman</a>
-  
-      </div>
-
-      <div class="content">
-          <h3>Menú</h3>
-          <a href="Index.html">Inicio</a>
-          <a href="Propuesta.html" >Propuesta</a>
-          <a href="Pac-Man.html" >PacMan</a>             
-      </div>
-
-      <div class="content">
-          <h3>   </h3>
-          <a href="Compra.html">Compra</a>
-          <a href="Nosotros.html" >Nosotros</a> 
-      </div>
-
-
-
-  </div>
-
-      <div class="piedepagina">
-          <hr>
-          <p>Programadores <b>Kintech</b></p>
-       </div>
-</footer>
+            <div class="piedepagina">
+                <hr>
+                <p>Programadores <b>Kintech</b></p>
+            </div>
+        </footer>
+        
+        <!-- Enlace al archivo JavaScript -->
+        <script src="pacman.js"></script>
+    </body>
 </html>
