@@ -1,95 +1,3 @@
-// Get the Pac-Man elements
-const pacMan = document.querySelector('.pac-man');
-const pacMan2 = document.querySelector('.pac-man.player2');
-
-// Get the game board element
-const gameBoard = document.querySelector('#game-board');
-
-// initial position of Pac-Man 1
-let pacManX = 400;
-let pacManY = 350;
-
-// initial position of Pac-Man 2
-let pacMan2X = 700;
-let pacMan2Y = 350;
-
-// variables to store the direction of movement
-let direccion = '';
-let direccion2 = '';
-
-// function to move Pac-Man in a direction
-function mover() { 
-  switch (direccion) {
-    case 'w':
-      pacManY = Math.max(pacManY - 15, 0);
-      break;
-    case 's':
-      pacManY = Math.min(pacManY + 15, gameBoard.offsetHeight - pacMan.offsetHeight);
-      break;
-    case 'a':
-      pacManX = Math.max(pacManX - 15, 0);
-      break;
-    case 'd':
-      pacManX = Math.min(pacManX + 15, gameBoard.offsetWidth - pacMan.offsetWidth);
-      break;
-  }
-  // update Pac-Man 1 position
-  pacMan.style.top = pacManY + 'px';
-  pacMan.style.left = pacManX + 'px';
-}
-
-// function to move Pac-Man 2 in a direction
-function mover2() { 
-  switch (direccion2) {
-    case 'u':
-      pacMan2Y = Math.max(pacMan2Y - 15, 0);
-      break;
-    case 'j':
-      pacMan2Y = Math.min(pacMan2Y + 15, gameBoard.offsetHeight - pacMan2.offsetHeight);
-      break;
-    case 'h':
-      pacMan2X = Math.max(pacMan2X - 15, 0);
-      break;
-    case 'k':
-      pacMan2X = Math.min(pacMan2X + 15, gameBoard.offsetWidth - pacMan2.offsetWidth);
-      break;
-  }
-  // update Pac-Man 2 position
-  pacMan2.style.top = pacMan2Y + 'px';
-  pacMan2.style.left = pacMan2X + 'px';
-}
-
-// move Pac-Man 1 continuously
-setInterval(mover, 100);
-
-// move Pac-Man 2 continuously
-setInterval(mover2, 100);
-
-// capture pressed keys for Pac-Man 1
-document.addEventListener('keydown', (event) => {
-  if (event.key == "w" || event.key == "a" || event.key == "s" || event.key == "d") {
-    direccion = event.key
-  }
-  if (event.key == "u" || event.key == "h" || event.key == "j" || event.key == "k") {
-    direccion2 = event.key
-  }
-});
-
-// // capture pressed keys for Pac-Man 2
-// document.addEventListener('keydown', (event) => {
-//   direccion2 = event.key;
-// });
-
-// remove dots
-const dots = document.querySelectorAll('.dot');
-dots.forEach((dot) => {
-  dot.addEventListener('touchstart', () => {
-    dot.remove();
-  });
-});
-
-
-
 var NONE        = 4,
     UP          = 3,
     LEFT        = 2,
@@ -102,7 +10,7 @@ var NONE        = 4,
     EATEN_PAUSE = 9,
     DYING       = 10,
     Pacman      = {};
-
+//velocidad de juego (todo)
 Pacman.FPS = 30;
 
 Pacman.Ghost = function (game, map, colour) {
@@ -125,7 +33,9 @@ Pacman.Ghost = function (game, map, colour) {
         };
     };
 
-
+    /* Collision detection(walls) is done when a ghost lands on an
+     * exact block, make sure they dont skip over it 
+     */
     function addBounded(x1, x2) { 
         var rem    = x1 % 10, 
             result = rem + x2;
@@ -389,7 +299,7 @@ Pacman.User = function (game, map) {
     function getLives() {
         return lives;
     };
-
+//vidas
     function initUser() {
         score = 0;
         lives = 3;
@@ -401,6 +311,7 @@ Pacman.User = function (game, map) {
         eaten = 0;
     };
     
+    //posicion de inicio
     function resetPosition() {
         position = {"x": 90, "y": 120};
         direction = LEFT;
@@ -422,6 +333,7 @@ Pacman.User = function (game, map) {
         return true;
 	};
 
+    //velocidad pacman
     function getNewCoord(dir, current) {   
         return {
             "x": current.x + (dir === LEFT && -2 || dir === RIGHT && 2 || 0),
@@ -511,7 +423,7 @@ Pacman.User = function (game, map) {
         block = map.block(nextWhole);        
         
         if ((isMidSquare(position.y) || isMidSquare(position.x)) &&
-            block === Pacman.BISCUIT || block === Pacman.PILL) {
+            block === Pacman.BISCUIT || block === Pacman.PILL ) {
             
             map.setBlock(nextWhole, Pacman.EMPTY);           
             addScore((block === Pacman.BISCUIT) ? 10 : 50);
@@ -537,6 +449,7 @@ Pacman.User = function (game, map) {
         return rem > 3 || rem < 7;
     };
 
+    //forma de pacman
     function calcAngle(dir, pos) { 
         if (dir == RIGHT && (pos.x % 10 < 5)) {
             return {"start":0.25, "end":1.75, "direction": false};
@@ -1213,8 +1126,8 @@ Pacman.MAP = [
 	[0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0],
 	[0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0],
 	[2, 2, 2, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 2, 2, 2],
-	[0, 0, 0, 0, 1, 0, 1, 0, 0, 3, 0, 0, 1, 0, 1, 0, 0, 0, 0],
-	[2, 2, 2, 2, 1, 1, 1, 0, 3, 3, 3, 0, 1, 1, 1, 2, 2, 2, 2],
+	[0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0],
+	[2, 2, 2, 2, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2],
 	[0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0],
 	[2, 2, 2, 0, 1, 0, 1, 1, 1, 2, 1, 1, 1, 0, 1, 0, 2, 2, 2],
 	[0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0],
@@ -1359,23 +1272,3 @@ $(function(){
       "(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
   }
 });
-
-const canvas = document.getElementById("mi-juego");
-
-// Obtener el contexto del canvas
-const contexto = canvas.getContext("2d");
-
-// Variable para almacenar el ID del intervalo del juego
-let intervaloDelJuego;
-
-// Función para pausar el juego
-function pausar() {
-  // Detener el intervalo del juego
-  clearInterval(intervaloDelJuego);
-}
-
-// Función para continuar el juego
-function continuar() {
-  // Iniciar el intervalo del juego
-  intervaloDelJuego = setInterval(actualizarJuego, 1000 / FPS);
-}
