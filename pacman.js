@@ -1272,3 +1272,37 @@ $(function(){
       "(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
   }
 });
+
+
+const mapWidth = 400;
+const mapHeight = 400;
+const pacmanLives = 3;
+
+function updateLives() {
+  // Implementa aquí la lógica para actualizar la visualización de las vidas de Pacman
+  // según el valor de la variable pacmanLives
+}
+
+function createBomb() {
+  const bomb = document.createElement('div');
+  bomb.classList.add('bomb');
+  bomb.style.left = Math.floor(Math.random() * (mapWidth - 20)) + 'px';
+  bomb.style.top = Math.floor(Math.random() * (mapHeight - 20)) + 'px';
+  document.getElementById('game-map').appendChild(bomb);
+
+  setTimeout(function() {
+    bomb.remove();
+    const pacmanX = pacman.position.x;
+    const pacmanY = pacman.position.y;
+    const bombX = parseInt(bomb.style.left);
+    const bombY = parseInt(bomb.style.top);
+    const distance = Math.sqrt((pacmanX - bombX) ** 2 + (pacmanY - bombY) ** 2);
+
+    if (distance < 50) {
+      pacmanLives--;
+      updateLives();
+    }
+  }, 5000);
+}
+
+setInterval(createBomb, 10000);
