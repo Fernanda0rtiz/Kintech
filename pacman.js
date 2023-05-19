@@ -451,14 +451,14 @@ Pacman.User = function (game, map) {
 
     //forma de pacman
     function calcAngle(dir, pos) { 
-        if (dir == RIGHT && (pos.x % 10 < 5)) {
-            return {"start":0.25, "end":1.75, "direction": false};
-        } else if (dir === DOWN && (pos.y % 10 < 5)) { 
-            return {"start":0.75, "end":2.25, "direction": false};
-        } else if (dir === UP && (pos.y % 10 < 5)) { 
-            return {"start":1.25, "end":1.75, "direction": true};
-        } else if (dir === LEFT && (pos.x % 10 < 5)) {             
-            return {"start":0.75, "end":1.25, "direction": true};
+        if (dir == RIGHT) {
+
+        } else if (dir === DOWN ) { 
+            return {"start":0, "end":2, "direction": false};
+        } else if (dir === UP ) { 
+            return {"start":0, "end":2, "direction": true};
+        } else if (dir === LEFT ) {             
+            return {"start":0, "end":2, "direction": true};
         }
         return {"start":0, "end":2, "direction": false};
     };
@@ -489,7 +489,7 @@ Pacman.User = function (game, map) {
         var s     = map.blockSize, 
             angle = calcAngle(direction, position);
 
-        ctx.fillStyle = "darkorange";
+
 
         ctx.beginPath();        
 
@@ -500,8 +500,42 @@ Pacman.User = function (game, map) {
                 ((position.y/10) * s) + s / 2,
                 s / 2, Math.PI * angle.start, 
                 Math.PI * angle.end, angle.direction); 
-        
-        ctx.fill();    
+        //emoji
+        ctx.fillStyle = "darkorange";
+        ctx.beginPath();
+        ctx.moveTo(((position.x/10) * s) + s / 2,
+                    ((position.y/10) * s) + s / 2);
+        ctx.arc(((position.x/10) * s) + s / 2,
+                ((position.y/10) * s) + s / 2,
+                s / 2, Math.PI * angle.start, 
+                Math.PI * angle.end, angle.direction);
+        ctx.closePath();
+        ctx.fill();
+
+        // Dibujamos las cejas fruncidas
+ctx.lineWidth = 2;
+ctx.fillStyle = "black";
+ctx.beginPath();
+ctx.moveTo(((position.x/10) * s) + s / 3 - 3, ((position.y/10) * s) + s / 3 - 5);
+ctx.lineTo(((position.x/10) * s) + s / 3 + 3, ((position.y/10) * s) + s / 3 +2);
+ctx.moveTo(((position.x/10) * s) + s * 2 / 3 - 3, ((position.y/10) * s) + s / 3 +2);
+ctx.lineTo(((position.x/10) * s) + s * 2 / 3 + 3, ((position.y/10) * s) + s / 3 - 5);
+ctx.stroke();
+
+// Dibujamos los ojos enojados
+ctx.fillStyle = "black";
+ctx.beginPath();
+ctx.arc(((position.x/10) * s) + s / 3, ((position.y/10) * s) + s / 2, s / 8, 0, Math.PI * 2);
+ctx.arc(((position.x/10) * s) + s * 2 / 3, ((position.y/10) * s) + s / 2, s / 8, 0, Math.PI * 2);
+ctx.closePath();
+ctx.fill();
+
+// Dibujamos la boca enojada
+ctx.fillStyle = "black";
+ctx.lineWidth = 2;
+ctx.beginPath();
+ctx.arc(((position.x/10) * s) + s / 2, ((position.y/10) * s) + s * 1.8 / 3, s / 4, Math.PI * 0.2, Math.PI * 0.8);
+ctx.stroke();
     };
     
     initUser();
@@ -790,7 +824,7 @@ var PACMAN = (function () {
 
     function drawScore(text, position) {
         ctx.fillStyle = "red";
-        ctx.font      = "12px BDCartoonShoutRegular";
+        ctx.font      = "10px arial";
         ctx.fillText(text, 
                      (position["new"]["x"] / 10) * map.blockSize, 
                      ((position["new"]["y"] + 5) / 10) * map.blockSize);
@@ -798,7 +832,7 @@ var PACMAN = (function () {
     
     function dialog(text) {
         ctx.fillStyle = "blackorange";
-        ctx.font      = "18px Calibri";
+        ctx.font      = "14px arial";
         var width = ctx.measureText(text).width,
             x     = ((map.width * map.blockSize) - width) / 2;        
         ctx.fillText(text, x, (map.height * 10) + 8);
@@ -827,12 +861,14 @@ var PACMAN = (function () {
         startLevel();
     }
 
+
     function keyDown(e) {
         if (e.keyCode === KEY.N) {
             startNewGame();
         } else if (e.keyCode === KEY.S) {
             audio.disableSound();
             localStorage["soundDisabled"] = !soundDisabled();
+       
         } else if (e.keyCode === KEY.P && state === PAUSE) {
             audio.resume();
             map.draw(ctx);
@@ -890,14 +926,15 @@ var PACMAN = (function () {
         }
 
         ctx.fillStyle = !soundDisabled() ? "red" : "white";
-        ctx.font = "bold 16px sans-serif";
+        ctx.font = "bold 16px arial";
         //ctx.fillText("♪", 10, textBase);
         ctx.fillText("s", 10, textBase);
 
         ctx.fillStyle = "orange";
-        ctx.font      = "14px Calibri";
+        ctx.font      = "14px arial";
         ctx.fillText("Score: " + user.theScore(), 30, textBase);
         ctx.fillText("Level: " + level, 260, textBase);
+        ctx.filltext ("Press P to Paused",310, textBase);
     }
 
     function redrawBlock(pos) {

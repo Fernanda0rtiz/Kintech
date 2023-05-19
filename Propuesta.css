@@ -2,56 +2,49 @@
 
     font-family: Pixels;
     src: url("fonts/pixels.ttf")
-    
 }
 
 @font-face {
 
     font-family: clasica;
     src: url("fonts/Quicksand-VariableFont_wght.ttf")
-    
 }
 
 @font-face {
 
     font-family: Pacman;
     src: url("fonts/Pac\ man.otf")
-    
 }
 
-@keyframes rotar{
-    from{
-        transform: rotateY(0deg);
-    }to{
-        transform: rotateY(360deg);
-    }
-}
 
-*
-{
-    margin:0;
+
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: clasica;
 }
 
 
-body
-{
+body {
     color: rgb(250, 245, 245);
-    font-family: clasica;
+    font-family: sans-serif;
     font-size: 1rem;
     line-height: 1.5em;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    background: linear-gradient(rgb(11, 0, 75), rgb(2, 2, 2))
+    background: linear-gradient(rgba(223, 107, 18, 0.878), rgb(75, 3, 3))
 }
 
 
+h1 {
+    font-family: Pixels;
+    font-size: 2rem;
+    margin-right: 500px;
+}
 
-header
-{
+
+header {
     position: absolute;
     top: 0;
     left: 0;
@@ -63,51 +56,64 @@ header
 
 }
 
-header ul 
-{
+header ul {
     display: flex;
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
 }
 
-header ul li 
-{
+header ul li {
     list-style: none;
     margin-left: 30px
 }
 
-header ul li a
-{
+header ul li a {
     text-decoration: none;
     padding: 6px 20px;
     color: white;
     border-radius: 20px;
 }
 
-header ul li a:hover
-{
+header ul li a:hover {
     background: white;
     color: black;
     font-family: Pixels;
 }
-
-
-
-h1 
-{
+.kin {
     font-family: Pixels;
-    font-size: 2rem;
-    margin-right: 500px;
+    color: white;
 }
 
-.body {
-    margin-left: 200px;
-    margin-right: 200px;
+
+.juego {
+    margin-top: 200px;
+    font-family: Pacman;
+    font-size: 4rem;
+    color: rgb(255, 196, 0);
+    text-align: center;
+    margin-bottom: 100px;
+
+}
+
+.pausar {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: pixels;
+    font-size: 10px;
+    margin-top: 40px;
+    margin-bottom: 150px;
+}
+
+#pacman {
+    height: 700px;
+    width: 600px;
+    border-radius: 5px gray;
+    margin: 20px auto;
 }
 
 
 footer {
-    background-color: #fadf2a;
+    background-color: #000000;
 }
 
 
@@ -138,7 +144,7 @@ footer {
 }
 
 .footer h3{
-    color: #1329f0;
+    color: #f01313;
     text-align: left;
 }
 
@@ -161,89 +167,21 @@ footer {
 
 .contenta .fab{
     font-size: 20px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
 
 }
 
 .content a .fas{
     font-size: 20px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
 }
 
 
 .piedepagina {
-    color: rgb(0, 0, 0);
+    color: rgb(249, 233, 145);
     font-family: clasica;
     margin-bottom: 10px;
     margin-top: 20px;
     text-align: center;
     font-size: 15px;
-}
-
-
-h2 {
-    font-family: Pacman;
-    font-size: 4rem;
-    color: #fadf2a;
-    text-align: center;
-    margin-top: 200px;
-    margin-bottom: 100px;
-}
-
-.video {
-    margin-bottom: -200px;
-}
-
-.button {
-    border: 1px solid rgb(214, 189, 63);
-    color: rgb(214, 189, 63);
-    text-align: center;
-    text-decoration: none;
-    border-radius: 10px;
-    font-size: 18px;
-    padding: 8px;
-    font-family: Pixels;
-    margin-left: 700px;
-    margin-bottom: 50px;
-}
-
-.uno {
-    margin-left: 500px;
-}
-
-.dos {
-    width: 300px;
-    height: 400px;
-    margin-left: 420px;
-}
-
-.tres {
-    width: 300px;
-    height: 400px;
-}
-
-h3 {
-    padding: 30px;
-    text-align: center;
-}
-
-
-p{
-    padding: 30px;
-    text-align: center;
-}
-
-.cuatro {
-    margin-left: 500px;
-}
-
-.seis {
-    margin-left: 500px;
-}
-
-video {
-    height: 1000px;
-    width: 800px;
-    align-items: center;
-    margin-left: 350px;
 }

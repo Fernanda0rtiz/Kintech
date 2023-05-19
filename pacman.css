@@ -16,15 +16,7 @@
     src: url("fonts/Pac\ man.otf")
 }
 
-@keyframes rotar {
-    from {
-        transform: rotateY(0deg);
-    }
 
-    to {
-        transform: rotateY(360deg);
-    }
-}
 
 * {
     margin: 0;
@@ -41,10 +33,15 @@ body {
     line-height: 1.5em;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-    background: linear-gradient(rgb(11, 0, 75), rgb(2, 2, 2))
+    background: linear-gradient(rgb(149, 204, 236), rgb(233, 249, 111))
 }
 
+
+h1 {
+    font-family: Pixels;
+    font-size: 2rem;
+    margin-right: 500px;
+}
 
 
 header {
@@ -82,43 +79,45 @@ header ul li a:hover {
     color: black;
     font-family: Pixels;
 }
-
-.interno {
-    margin-left: 100px;
-    margin-bottom: 100px;
-}
-
-h1 {
+.kin {
     font-family: Pixels;
-    font-size: 2rem;
-    margin-right: 500px;
+    color: white;
 }
-
 
 
 .juego {
     margin-top: 200px;
     font-family: Pacman;
     font-size: 4rem;
-    color: rgb(235, 207, 48);
+    color: rgb(239, 143, 25);
     text-align: center;
     margin-bottom: 100px;
-    margin-left: 450px;
+
 }
 
-p {
-    font-size: 20px;
-    font-family: clasica;
-    margin-bottom: 30px;
+.pausar {
+    text-align: center;
+    color: black;
+    font-family: pixels;
+    font-size: 10px;
+    margin-top: 40px;
+    margin-bottom: 150px;
 }
 
-body {
-    background-color: rgb(14, 14, 179);
+#pacman {
+    height: 700px;
+    width: 600px;
+    border-radius: 5px gray;
+    margin: 20px auto;
 }
 
 
+footer {
+    background-color: #a7eaff;
+}
 
-.footer {
+
+.footer{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -128,7 +127,7 @@ body {
     text-align: right;
 }
 
-.content {
+.content{
     display: flex;
     flex-direction: column;
     text-align: right;
@@ -136,7 +135,7 @@ body {
 }
 
 
-.content.terms {
+.content.terms{
     max-width: 350px;
 
     color: #000000;
@@ -144,35 +143,35 @@ body {
     text-align: left;
 }
 
-.footer h3 {
+.footer h3{
     color: #1329f0;
     text-align: left;
 }
 
 .content .menu {
-    color: #1329f0;
+    color:#1329f0;
     text-align: left;
 }
 
-.content a {
+.content a{
     margin-top: 10px;
     color: #7a7a7a;
     font-weight: 400;
     text-align: left;
 }
 
-.content a:hover {
+.content a:hover{
     opacity: 0.6;
     font-family: pixels;
 }
 
-.contenta .fab {
+.contenta .fab{
     font-size: 20px;
     color: rgb(0, 0, 0);
 
 }
 
-.content a .fas {
+.content a .fas{
     font-size: 20px;
     color: rgb(0, 0, 0);
 }
@@ -184,49 +183,5 @@ body {
     margin-bottom: 10px;
     margin-top: 20px;
     text-align: center;
-    font-size: 10px;
+    font-size: 15px;
 }
-
-.wall {
-    border: 6px solid #000;
-}
-
-.pac-man {
-    width: 25px;
-    height: 25px;
-}
-
-body {
-    background-color: rgb(0, 0, 0);
-}
-
-#pacman {
-    height: 470px;
-    width: 382px;
-    border-radius: 5px;
-    margin: 20px auto;
-}
-
-#shim {
-    font-family: 'Permanent Marker', cursive;
-    position: absolute;
-    visibility: hidden
-}
-
-h1 {
-    font-family: 'Permanent Marker', cursive;
-    text-align: center;
-    color: rgb(246, 255, 0);
-}
-
-body {
-    width: 342px;
-    margin: 0px auto;
-    font-family: sans-serif;
-}
-
-a {
-    text-decoration: none;
-    color: #fff200;
-}
-
