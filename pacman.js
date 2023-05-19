@@ -119,12 +119,12 @@ Pacman.Ghost = function (game, map, colour) {
     function getColour() { 
         if (eatable) { 
             if (secondsAgo(eatable) > 5) { 
-                return game.getTick() % 20 > 10 ? "#FFFFFF" : "#0000BB";
+                return game.getTick() % 20 > 10 ? "gold" : "blackgold";
             } else { 
-                return "#0000BB";
+                return "black";
             }
         } else if(eaten) { 
-            return "#222";
+            return "darkred";
         } 
         return colour;
     };
@@ -169,7 +169,7 @@ Pacman.Ghost = function (game, map, colour) {
         ctx.fill();
 
         ctx.beginPath();
-        ctx.fillStyle = "#FFF";
+        ctx.fillStyle = "red";
         ctx.arc(left + 6,top + 6, s / 6, 0, 300, false);
         ctx.arc((left + s) - 6,top + 6, s / 6, 0, 300, false);
         ctx.closePath();
@@ -183,7 +183,7 @@ Pacman.Ghost = function (game, map, colour) {
         off[DOWN]  = [0, f];
 
         ctx.beginPath();
-        ctx.fillStyle = "#000";
+        ctx.fillStyle = "black";
         ctx.arc(left+6+off[direction][0], top+6+off[direction][1], 
                 s / 15, 0, 300, false);
         ctx.arc((left+s)-6+off[direction][0], top+6+off[direction][1], 
@@ -283,7 +283,7 @@ Pacman.User = function (game, map) {
 
     function addScore(nScore) { 
         score += nScore;
-        if (score >= 10000 && score - nScore < 10000) { 
+        if (score >= 5000 && score - nScore < 5000) { 
             lives += 1;
         }
     };
@@ -472,7 +472,7 @@ Pacman.User = function (game, map) {
             return;
         }
 
-        ctx.fillStyle = "#FFFF00";
+        ctx.fillStyle = "silver";
         ctx.beginPath();        
         ctx.moveTo(((position.x/10) * size) + half, 
                    ((position.y/10) * size) + half);
@@ -489,7 +489,7 @@ Pacman.User = function (game, map) {
         var s     = map.blockSize, 
             angle = calcAngle(direction, position);
 
-        ctx.fillStyle = "#FFFF00";
+        ctx.fillStyle = "darkorange";
 
         ctx.beginPath();        
 
@@ -552,7 +552,7 @@ Pacman.Map = function (size) {
 
         var i, j, p, line;
         
-        ctx.strokeStyle = "#0000FF";
+        ctx.strokeStyle = "darkred";
         ctx.lineWidth   = 5;
         ctx.lineCap     = "round";
         
@@ -608,7 +608,7 @@ Pacman.Map = function (size) {
 		            ctx.fillRect((j * blockSize), (i * blockSize), 
                                  blockSize, blockSize);
 
-                    ctx.fillStyle = "#FFF";
+                    ctx.fillStyle = "magenta";
                     ctx.arc((j * blockSize) + blockSize / 2,
                             (i * blockSize) + blockSize / 2,
                             Math.abs(5 - (pillSize/3)), 
@@ -655,7 +655,7 @@ Pacman.Map = function (size) {
                          blockSize, blockSize);
 
             if (layout === Pacman.BISCUIT) {
-                ctx.fillStyle = "#FFF";
+                ctx.fillStyle = "gold";
 		        ctx.fillRect((x * blockSize) + (blockSize / 2.5), 
                              (y * blockSize) + (blockSize / 2.5), 
                              blockSize / 6, blockSize / 6);
@@ -765,6 +765,8 @@ Pacman.Audio = function(game) {
 
 var PACMAN = (function () {
 
+
+//colores de los fantasmas aca    
     var state        = WAITING,
         audio        = null,
         ghosts       = [],
@@ -787,7 +789,7 @@ var PACMAN = (function () {
     };
 
     function drawScore(text, position) {
-        ctx.fillStyle = "#FFFFFF";
+        ctx.fillStyle = "red";
         ctx.font      = "12px BDCartoonShoutRegular";
         ctx.fillText(text, 
                      (position["new"]["x"] / 10) * map.blockSize, 
@@ -795,7 +797,7 @@ var PACMAN = (function () {
     }
     
     function dialog(text) {
-        ctx.fillStyle = "#FFFF00";
+        ctx.fillStyle = "blackorange";
         ctx.font      = "18px Calibri";
         var width = ctx.measureText(text).width,
             x     = ((map.width * map.blockSize) - width) / 2;        
@@ -870,13 +872,13 @@ var PACMAN = (function () {
         var topLeft  = (map.height * map.blockSize),
             textBase = topLeft + 17;
         
-        ctx.fillStyle = "#000000";
+        ctx.fillStyle = "black";
         ctx.fillRect(0, topLeft, (map.width * map.blockSize), 30);
         
         ctx.fillStyle = "#FFFF00";
 
         for (var i = 0, len = user.getLives(); i < len; i++) {
-            ctx.fillStyle = "#FFFF00";
+            ctx.fillStyle = "red";
             ctx.beginPath();
             ctx.moveTo(150 + (25 * i) + map.blockSize / 2,
                        (topLeft+1) + map.blockSize / 2);
@@ -887,12 +889,12 @@ var PACMAN = (function () {
             ctx.fill();
         }
 
-        ctx.fillStyle = !soundDisabled() ? "#00FF00" : "#FF0000";
+        ctx.fillStyle = !soundDisabled() ? "red" : "white";
         ctx.font = "bold 16px sans-serif";
         //ctx.fillText("♪", 10, textBase);
         ctx.fillText("s", 10, textBase);
 
-        ctx.fillStyle = "#FFFF00";
+        ctx.fillStyle = "orange";
         ctx.font      = "14px Calibri";
         ctx.fillText("Score: " + user.theScore(), 30, textBase);
         ctx.fillText("Level: " + level, 260, textBase);
@@ -961,7 +963,7 @@ var PACMAN = (function () {
         } else if (state === WAITING && stateChanged) {            
             stateChanged = false;
             map.draw(ctx);
-            dialog("Press N to start a New game");            
+            dialog("Press N to Die...");            
         } else if (state === EATEN_PAUSE && 
                    (tick - timerStart) > (Pacman.FPS / 3)) {
             map.draw(ctx);
@@ -988,7 +990,7 @@ var PACMAN = (function () {
                 if (diff !== lastTime) { 
                     lastTime = diff;
                     map.draw(ctx);
-                    dialog("Starting in: " + diff);
+                    dialog("Ready for the ride through hell?? " + diff);
                 }
             }
         } 
@@ -1046,7 +1048,7 @@ var PACMAN = (function () {
         }
         
         map.draw(ctx);
-        dialog("Loading ...");
+        dialog("Loading your worst nightmare ...");
 
         var extension = Modernizr.audio.ogg ? 'ogg' : 'mp3';
 
@@ -1074,7 +1076,7 @@ var PACMAN = (function () {
         
     function loaded() {
 
-        dialog("Press N to Start");
+        dialog("Press N to Die...");
         
         document.addEventListener("keydown", keyDown, true);
         document.addEventListener("keypress", keyPress, true); 

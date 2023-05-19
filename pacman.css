@@ -230,25 +230,3 @@ a {
     color: #fff200;
 }
 
-
-#game-map {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    border: 2px solid #000;
-    position: relative
-  }
-  
-  .bomb {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    border-radius: 50%;
-    position: absolute
-  }
-  
-  .explosion {
-    background-color: orange;
-  }
-  
