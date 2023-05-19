@@ -512,7 +512,7 @@ Pacman.User = function (game, map) {
         ctx.closePath();
         ctx.fill();
 
-        // Dibujamos las cejas fruncidas
+       // Dibujamos las cejas fruncidas
 ctx.lineWidth = 2;
 ctx.fillStyle = "black";
 ctx.beginPath();
@@ -537,7 +537,9 @@ ctx.beginPath();
 ctx.arc(((position.x/10) * s) + s / 2, ((position.y/10) * s) + s * 1.8 / 3, s / 4, Math.PI * 0.2, Math.PI * 0.8);
 ctx.stroke();
     };
-    
+
+
+
     initUser();
 
     return {
